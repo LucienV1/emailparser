@@ -107,6 +107,7 @@ var disallowed = map[string]bool{
 	"\x5B": true,
 	"\x5C": true,
 	"\x5D": true,
+	"\x7F": true,
 }
 
 var ErrPunycodeConversion error = errors.New("punycode conversion failed")
