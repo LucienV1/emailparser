@@ -157,9 +157,14 @@ func ValidateDomainOfEmail(email string) (bool, error) {
 	if err != nil {
 		return false, nil
 	}
-	ip1 := net.ParseIP(mxaddr[0].String())
-	if ip1.IsPrivate() {
-		return false, nil
+	num := 0
+	for num <= len(mxaddr) {
+		ip := net.ParseIP(mxaddr[num].String())
+		if ip.IsPrivate() {
+			return false, nil
+		} else {
+			num++
+		}
 	}
 	return true, nil
 }
